@@ -13,7 +13,7 @@ var chosenWord;
 
 function startGame() {
 
-    console.log(chalk.blue("It's time to guess the best TV Shows!"));
+    console.log(chalk.red.bgWhiteBright("It's time to guess the best TV Shows!"));
 }
 
 function chooseRandomWord() {
@@ -50,11 +50,11 @@ function guessWord() {
 
             if (randomWord.toLowerCase().indexOf(guess.toLowerCase()) === -1) {
                 guesses--;
-                console.log(chalk.red("INCORRECT! " + guesses + " guesses remaining"))
+                console.log(chalk.red.bgWhiteBright("INCORRECT! " + guesses + " guesses remaining"))
             } 
             else {
                 if (points < 5) {
-                console.log(chalk.green("CORRECT!"))
+                console.log(chalk.red.bgWhiteBright("CORRECT!"))
                 }
             }
 
@@ -64,7 +64,7 @@ function guessWord() {
                 points++;
 
                 if (points < 5) {
-                    console.log(chalk.green("CORRECT! Next show!"));
+                    console.log(chalk.green.bgWhiteBright("CORRECT! Next show!"));
                     chooseRandomWord();
                 }
 
@@ -85,7 +85,7 @@ function guessWord() {
 }
 
 function loseGame() {
-    console.log(chalk.red("GAME OVER!"));
+    console.log(chalk.red.bgWhiteBright("GAME OVER!"));
     inquirer.prompt([
         {
             name: "confirm",
@@ -102,7 +102,7 @@ function loseGame() {
                 guessWord();
             }
             else {
-                console.log(chalk.blue("DO NOT TALK TO ME OR MY SON EVER AGAIN!"));
+                console.log(chalk.red.bgWhiteBright("DO NOT TALK TO ME OR MY SON EVER AGAIN!"));
                 process.exit();
             }
         })
@@ -136,7 +136,7 @@ function winGame() {
                 guessWord();
             }
             else {
-                console.log(chalk.blue("LOSER"))
+                console.log(chalk.red.bgWhiteBright("LOSER"))
                 process.exit();
             }
         })
